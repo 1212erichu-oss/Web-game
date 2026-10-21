@@ -9,6 +9,7 @@ Open `index.html` in a browser, or enable GitHub Pages for the repository root. 
 ## Controls
 
 - **WASD / Arrow keys** — move
+- **F / click** — fire
 - **Space** — pause
 
-Collect cyan shards and avoid the pink mines. Your best score is saved in the browser.
+Collect 20 cyan shards to win, avoid the pink mines, and fire to destroy them for bonus points. Your best score is saved in the browser.
