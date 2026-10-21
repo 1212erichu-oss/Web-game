@@ -2,6 +2,8 @@
 
 A small browser arcade game built with plain HTML, CSS, and JavaScript.
 
+Current version: **v0.3.0**
+
 ## Play
 
 Open `index.html` in a browser, or enable GitHub Pages for the repository root. No build step is required.

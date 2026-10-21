@@ -12,6 +12,7 @@
     .shell { width:min(1050px, 94vw); padding:22px 0; }
     header { display:flex; justify-content:space-between; align-items:end; gap:24px; margin-bottom:16px; }
     .eyebrow { margin:0 0 5px; color:var(--cyan); text-transform:uppercase; letter-spacing:.22em; font-size:11px; font-weight:800; }
+    .version { display:inline-block; margin-left:8px; padding:3px 7px; border:1px solid rgba(101,247,238,.35); border-radius:999px; color:#d9fffb; background:rgba(101,247,238,.08); letter-spacing:.08em; font-size:9px; vertical-align:2px; }
     h1 { margin:0; font-size:clamp(30px, 6vw, 57px); line-height:.95; letter-spacing:-.07em; text-shadow:0 0 24px rgba(101,247,238,.24); }
     .tagline { color:var(--muted); margin:9px 0 0; font-size:14px; }
     .stats { display:flex; gap:10px; }
@@ -35,7 +36,7 @@
 <body>
   <main class="shell">
     <header>
-      <div><p class="eyebrow">Arcade // Sector 07</p><h1>NEON DRIFT</h1><p class="tagline">Catch the light. Outrun the dark.</p></div>
+      <div><p class="eyebrow">Arcade // Sector 07 <span class="version" id="version">v0.3.0</span></p><h1>NEON DRIFT</h1><p class="tagline">Catch the light. Outrun the dark.</p></div>
       <div class="stats"><div class="stat"><span>Score</span><strong id="score">0000</strong></div><div class="stat"><span>Best</span><strong id="best">0000</strong></div><div class="stat"><span>Time</span><strong id="time">0.0s</strong></div><div class="stat"><span>Shards</span><strong id="shards">0 / 20</strong></div></div>
     </header>
     <section class="game-wrap">
@@ -49,7 +50,7 @@
     const canvas = document.getElementById('game'), ctx = canvas.getContext('2d');
     const scoreEl = document.getElementById('score'), bestEl = document.getElementById('best'), timeEl = document.getElementById('time'), shardsEl = document.getElementById('shards');
     const overlay = document.getElementById('overlay'), title = document.getElementById('title'), message = document.getElementById('message'), start = document.getElementById('start');
-    const W=960,H=540,GOAL=20, keys={}; let state='ready', score=0, best=Number(localStorage.getItem('neon-drift-best')||0), elapsed=0, combo=0, collected=0, last=0, spawn=0, fireCooldown=0, shard, mines=[], bullets=[], sparks=[], stars=[];
+    const VERSION='v0.3.0', W=960,H=540,GOAL=20, keys={}; document.getElementById('version').textContent=VERSION; let state='ready', score=0, best=Number(localStorage.getItem('neon-drift-best')||0), elapsed=0, combo=0, collected=0, last=0, spawn=0, fireCooldown=0, shard, mines=[], bullets=[], sparks=[], stars=[];
     const ship={x:W/2,y:H-100,r:14,vx:0,vy:0}; bestEl.textContent=String(best).padStart(4,'0');
     for(let i=0;i<100;i++) stars.push({x:Math.random()*W,y:Math.random()*H,z:Math.random()*.8+.2,s:Math.random()*2+0.4});
     const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
